@@ -57,6 +57,7 @@ import {
 import brandWhite from "assets/images/logo-ct.png";
 import brandDark from "assets/images/logo-ct-dark.png";
 import Dashboard from "pages/dashboard";
+import CreateEmployee from "pages/createEmployee";
 
 export default function App() {
   const [controller, dispatch] = useMaterialUIController();
@@ -216,6 +217,7 @@ export default function App() {
         <Route path="/employees" element={<Navigate to="/dashboard" />} />
         <Route path="/orders" element={<Navigate to="/dashboard" />} />
         <Route path="/logout" element={<Navigate to="/dashboard" />} />
+        <Route path="/create-employee" element={<CreateEmployee />} />
       </Routes>
     </ThemeProvider>
   );
