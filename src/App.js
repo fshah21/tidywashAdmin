@@ -1,18 +1,3 @@
-/**
-=========================================================
-* Material Dashboard 3 PRO React - v2.4.0
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/material-dashboard-pro-react
-* Copyright 2024 Creative Tim (https://www.creative-tim.com)
-
-Coded by www.creative-tim.com
-
- =========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-*/
-
 import { useState, useEffect, useMemo } from "react";
 
 // react-router components
@@ -56,8 +41,17 @@ import {
 // Images
 import brandWhite from "assets/images/logo-ct.png";
 import brandDark from "assets/images/logo-ct-dark.png";
-import Dashboard from "pages/dashboard";
+import HomePage from "pages/home";
+import DashboardPage from "pages/dashboard";
+import Orders from "pages/orders";
+import Memberships from "pages/memberships";
+import Employees from "pages/employees";
 import CreateEmployee from "pages/createEmployee";
+// import CreateConsultationPage from "pages/CreateConsultationPage";
+// import ConsultationsPage from "pages/ConsultationsPage";
+// import GetUserHistoryPage from "pages/GetUserHistoryPage";
+// import CreateTestPage from "pages/CreateTestPage";
+// import ChatsPage from "pages/ChatsPage";
 
 export default function App() {
   const [controller, dispatch] = useMaterialUIController();
@@ -88,7 +82,7 @@ export default function App() {
   // Open sidenav when mouse enter on mini sidenav
   const handleOnMouseEnter = () => {
     if (miniSidenav && !onMouseEnter) {
-      setMiniSidenav(dispatch, false);
+      // setMiniSidenav(dispatch, false);
       setOnMouseEnter(true);
     }
   };
@@ -96,7 +90,7 @@ export default function App() {
   // Close sidenav when mouse leave mini sidenav
   const handleOnMouseLeave = () => {
     if (onMouseEnter) {
-      setMiniSidenav(dispatch, true);
+      // setMiniSidenav(dispatch, true);
       setOnMouseEnter(false);
     }
   };
@@ -164,7 +158,7 @@ export default function App() {
     <CacheProvider value={rtlCache}>
       <ThemeProvider theme={darkMode ? themeDarkRTL : themeRTL}>
         <CssBaseline />
-        {layout === "dashboard" && (
+        {/* {layout === "dashboard" && (
           <>
             <Sidenav
               color={sidenavColor}
@@ -173,7 +167,7 @@ export default function App() {
                   ? brandDark
                   : brandWhite
               }
-              brandName="Fresh Wash"
+              brandName="Creative Tim"
               routes={routes}
               onMouseEnter={handleOnMouseEnter}
               onMouseLeave={handleOnMouseLeave}
@@ -182,17 +176,23 @@ export default function App() {
             {configsButton}
           </>
         )}
-        {layout === "vr" && <Configurator />}
+        {layout === "vr" && <Configurator />} */}
         <Routes>
-          {getRoutes(routes)}
-          <Route path="*" element={<Navigate to="/dashboards/analytics" />} />
-        </Routes>
+          {/* {getRoutes(routes)} */}
+          {/* <Route exact path="/" element={<HomePage />} /> */}
+          <Route exact path="/" element={<HomePage />} />
+          <Route exact path="/dashboard" element={<DashboardPage />} />
+          <Route exact path="/orders" element={<Orders />} />
+          <Route exact path="/memberships" element={<Memberships />} />
+          <Route exact path="/employees" element={<Employees />} />
+          <Route exact path="/createEmployee" element={<CreateEmployee />} />
+          </Routes>
       </ThemeProvider>
     </CacheProvider>
   ) : (
     <ThemeProvider theme={darkMode ? themeDark : theme}>
       <CssBaseline />
-      {layout === "dashboard" && (
+      {/* {layout === "dashboard" && (
         <>
           <Sidenav
             color={sidenavColor}
@@ -209,15 +209,17 @@ export default function App() {
           <Configurator />
           {configsButton}
         </>
-      )}
-      {layout === "vr" && <Configurator />}
+      )} */}
+      {/* {layout === "vr" && <Configurator />} */}
       <Routes>
-        {getRoutes(routes)}
-        <Route path="/dashboard" element={<Dashboard />}/>
-        <Route path="/employees" element={<Navigate to="/dashboard" />} />
-        <Route path="/orders" element={<Navigate to="/dashboard" />} />
-        <Route path="/logout" element={<Navigate to="/dashboard" />} />
-        <Route path="/create-employee" element={<CreateEmployee />} />
+        {/* {getRoutes(routes)} */}
+        {/* <Route exact path="/" element={<HomePage />} /> */}
+        <Route exact path="/" element={<HomePage />} />
+        <Route exact path="/dashboard" element={<DashboardPage />} />
+        <Route exact path="/orders" element={<Orders />} />
+        <Route exact path="/memberships" element={<Memberships />} />
+        <Route exact path="/employees" element={<Employees />} />
+        <Route exact path="/createEmployee" element={<CreateEmployee />} />
       </Routes>
     </ThemeProvider>
   );

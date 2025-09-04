@@ -73,6 +73,7 @@ import MDAvatar from "components/MDAvatar";
 import Icon from "@mui/material/Icon";
 import Orders from "pages/orders";
 import Employees from "pages/employees";
+import Memberships from 'pages/memberships';
 
 // // Images
 // import profilePicture from "assets/images/team-3.jpg";
@@ -95,6 +96,15 @@ const routes = [
     route: "/orders",
     noCollapse: true,
     component: <Orders />
+  },
+  {
+    type: "collapse",
+    name: "Memberships",
+    key: "pages",
+    icon: <Icon fontSize="small">image</Icon>,
+    route: "/memberships",
+    noCollapse: true,
+    component: <Memberships />
   },
   {
     type: "collapse",

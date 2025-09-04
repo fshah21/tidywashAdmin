@@ -3,7 +3,7 @@ import DataTable from "examples/Tables/DataTable";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-function Orders() {
+function Memberships() {
     console.log("IN ORDERS COMPONENT");
     const [names, setNames] = useState([]);
     const [rows, setRows] = useState([]);
@@ -45,7 +45,7 @@ function Orders() {
     ];    
 
       useEffect(() => {
-        const fetchAllOrders = async () => {
+        const fetchAllMemberships = async () => {
           try {
             const response = await axios.get("https://orderservice-ws6i.onrender.com/api/orders/getAllOrders");
             const data = response.data;
@@ -92,14 +92,14 @@ function Orders() {
           }
         };
     
-        fetchAllOrders();
+        fetchAllMemberships();
         fetchAllEmployees();
       }, []);
 
     return (
       <DashboardLayout>
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "20px" }}>
-          <h1 style={{ margin: 0 }}>Orders</h1>
+          <h1 style={{ margin: 0 }}>Memberships</h1>
       </div>
       <DataTable
           table={{ columns, rows }}
@@ -115,4 +115,4 @@ function Orders() {
         
 }  
 
-export default Orders;
+export default Memberships;
