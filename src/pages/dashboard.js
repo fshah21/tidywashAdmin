@@ -312,7 +312,7 @@ const chartData = {
       {/* Sidenav */}
       <Sidenav
         color="info"
-        brandName="Pinky Promise"
+        brandName="Tidywash"
         routes={routes}
       />
       <div style={{ flex: 1, display: "flex", flexDirection: "column" }}>
